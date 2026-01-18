@@ -2,38 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register | Aina Global</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Aina Global – Register</title>
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
 </head>
-
 <body>
 
-<header>
-  <h1>Aina Global</h1>
-  <p>New User Registration</p>
-</header>
+  <div class="register-container" style="max-width:400px;margin:auto;padding:20px;">
+    <h2 style="text-align:center;color:#0a3cff;">Register to Aina Global</h2>
 
-<div class="container">
-  <div class="card">
-    <h2>Create Account</h2>
+    <!-- STEP 11.3 – Input Fields -->
+    <form id="registerForm" style="display:flex;flex-direction:column;gap:15px;margin-top:20px;">
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <input type="text" id="regReferral" placeholder="Referral Code">
+    </form>
 
-    <input type="text" placeholder="Full Name" style="width:100%;padding:10px;margin-bottom:10px;">
-    <input type="email" placeholder="Email" style="width:100%;padding:10px;margin-bottom:10px;">
-    <input type="password" placeholder="Password" style="width:100%;padding:10px;margin-bottom:10px;">
-    <input type="text" placeholder="Referral Code" style="width:100%;padding:10px;margin-bottom:10px;">
-
-    <button style="width:100%;padding:10px;background:#0a3cff;color:white;border:none;border-radius:5px;">
+    <!-- STEP 11.4 – Register Button -->
+    <button onclick="registerUser()" style="width:100%;padding:10px;background:#0a3cff;color:white;border:none;border-radius:5px;margin-top:10px;">
       Register
     </button>
 
-    <p style="margin-top:15px;text-align:center;">
-      Already have an account?
-      <a href="login.html">Login here</a>
+    <p style="text-align:center;margin-top:10px;">
+      Already have an account? <a href="login.html">Login</a>
     </p>
   </div>
-</div>
 
 </body>
 </html>
