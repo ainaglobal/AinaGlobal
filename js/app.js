@@ -57,3 +57,21 @@ function registerUser() {
       alert("Error: " + error.message);
     });
 }
+// Firebase – Dashboard data fetch
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    const uid = user.uid;
+    firebase.database().ref("users/" + uid).once("value")
+      .then((snapshot) => {
+        const data = snapshot.val();
+        document.getElementById("dashName").innerText = data.name;
+        document.getElementById("dashLevel").innerText = data.level;
+        document.getElementById("dashBV").innerText = data.BV;
+        document.getElementById("dashIP").innerText = data.IP;
+        document.getElementById("dashStatus").innerText = data.status;
+      });
+  } else {
+    // Agar user login nahi hai → login page
+    window.location.href = "login.html";
+  }
+});
