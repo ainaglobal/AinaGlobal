@@ -71,7 +71,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("dashStatus").innerText = data.status;
       });
   } else {
-    // Agar user login nahi hai → login page
     window.location.href = "login.html";
   }
 });
