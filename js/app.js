@@ -126,5 +126,5 @@ function completeTask(userId, taskName, BV, IP) {
     return user;
   });
 
-  alert(taskName + " Completed!");
+  alert(taskName + " Completed!"); 
 }
