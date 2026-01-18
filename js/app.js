@@ -20,3 +20,40 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 console.log("Firebase Connected");
+
+// Register User Function
+function registerUser() {
+  const name = document.getElementById("regName").value;
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
+  const referral = document.getElementById("regReferral").value;
+
+  if (!name || !email || !password) {
+    alert("Please fill all required fields!");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+
+      // Save extra info in database
+      firebase.database().ref("users/" + user.uid).set({
+        name: name,
+        email: email,
+        referral: referral,
+        BV: 0,
+        IP: 0,
+        level: 0,
+        status: "Red",
+        tasks: {},
+        royalty: 0
+      });
+
+      alert("Registration Successful!");
+      window.location.href = "../pages/login.html"; // Redirect to login
+    })
+    .catch((error) => {
+      alert("Error: " + error.message);
+    });
+}
