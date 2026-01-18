@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aina Global – Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+</head>
+<body>
+
+  <div class="dashboard-container" style="max-width:500px;margin:auto;padding:20px;">
+    <h2 style="text-align:center;color:#0a3cff;">Welcome, <span id="dashName">User</span></h2>
+
+    <!-- User Stats -->
+    <div class="user-stats" style="margin-top:20px;">
+      <p>Level: <span id="dashLevel">0</span></p>
+      <p>BV: <span id="dashBV">0</span></p>
+      <p>IP: <span id="dashIP">0</span></p>
+      <p>Status: <span id="dashStatus">Red</span></p>
+    </div>
+
+  </div>
+
+</body>
+</html>
