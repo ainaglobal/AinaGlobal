@@ -1,4 +1,4 @@
-// app.js
+7// app.js
 console.log("Aina Global app.js loaded");
 
 const firebaseConfig = {
@@ -71,59 +71,4 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("dashStatus").innerText = data.status;
       });
   } else {
-    window.location.href = "login.html";
-  }
-});
-// Example tasks
-const tasks = [
-  {name: "Watch YouTube Video", BV: 10, IP: 1},
-  {name: "Play Game", BV: 20, IP: 2},
-  {name: "Download App", BV: 15, IP: 1}
-];
-
-// Render tasks dynamically
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    const uid = user.uid;
-    const taskList = document.getElementById("taskList");
-    taskList.innerHTML = "";
-
-    tasks.forEach(task => {
-      const div = document.createElement("div");
-      div.style.marginBottom = "15px";
-      div.innerHTML = `
-        <p>${task.name}</p>
-        <button onclick="completeTask('${uid}','${task.name}',${task.BV},${task.IP})">
-          Complete Task
-        </button>
-      `;
-      taskList.appendChild(div);
-    });
-  } else {
-    window.location.href = "login.html";
-  }
-});
-
-// Complete Task function
-function completeTask(userId, taskName, BV, IP) {
-  // Mark task as completed
-  firebase.database().ref('users/' + userId + '/tasks/' + taskName).set('completed');
-
-  // Update BV, IP and Level
-  firebase.database().ref('users/' + userId).transaction(user => {
-    if(user){
-      user.BV += BV;
-      user.IP += IP;
-      // Auto level
-      if(user.IP >= 3600) user.level = 8;
-      else if(user.IP >= 1800) user.level = 7;
-      else if(user.IP >= 600) user.level = 6;
-      else if(user.IP >= 160) user.level = 5;
-      else if(user.IP >= 40) user.level = 4;
-      else user.level = 3;
-    }
-    return user;
-  });
-
-  alert(taskName + " Completed!"); 
-}
+    
